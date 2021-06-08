@@ -1,14 +1,20 @@
+document.addEventListener("DOMContentLoaded",()=>{
+    const h1 = document.getElementsByTagName("h1")
+    setTimeout(()=>{
+        console.log(h1[0].innerText)
+    },400)
 
-fetch("https://raw.githubusercontent.com/SaintJul/json-server-collection/main/bond-movie-stats/db.json")
-.then(function(res){
-    return res.json()
+    const form  = document.getElementById("interaction")
+   console.log(form)
+
+    
 })
-.then (function(obj){
-    console.log(obj)
-})
 
 
+// 06/07/21-06/08/21 Tuesday Night
 // Display the names of the bonds films +
+// I also experimented with a function to add to the user experience +
+// Additional research was done for the background img and font +
 
 
 //structurally ~ 
@@ -18,3 +24,28 @@ fetch("https://raw.githubusercontent.com/SaintJul/json-server-collection/main/bo
     // once the category for additional infomation is clicked, the user could also look at movies with the same actor.
 
 //Display the info then get css to style the page and info.
+
+/*
+document.addEventListener("DOMContentLoaded", () => {
+fetch("https://raw.githubusercontent.com/SaintJul/json-server-collection/main/bond-movie-stats/db.json")
+.then(function(rres){
+    return rres.json()
+})
+.then(function(data){
+    movieNames(data)
+})
+
+function movieNames(movies){
+    console.log(movies.movies.length) // Number of movies
+   //console.log(movies.movies[0]["Movie"]) // shows the first movie
+
+   
+
+}
+
+})
+
+
+
+
+*/
