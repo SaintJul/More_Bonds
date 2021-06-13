@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded",()=>{
+/*document.addEventListener("DOMContentLoaded",()=>{
     const h1 = document.getElementsByTagName("h1")
     setTimeout(()=>{
         console.log(h1[0].innerText)
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded",()=>{
    console.log(form)
 
     
-})
+})*/
 
 
 // 06/07/21-06/08/21 Tuesday Night
@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 //Display the info then get css to style the page and info.
 
-/*
+/**/
 document.addEventListener("DOMContentLoaded", () => {
-fetch("https://raw.githubusercontent.com/SaintJul/json-server-collection/main/bond-movie-stats/db.json")
+fetch("db.json")
 .then(function(rres){
     return rres.json()
 })
@@ -48,4 +48,3 @@ function movieNames(movies){
 
 
 
-*/
