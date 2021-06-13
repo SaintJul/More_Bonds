@@ -27,13 +27,17 @@
 
 /**/
 document.addEventListener("DOMContentLoaded", () => {
-fetch("http:localhost:3000/movies/")
-.then(function(rres){
-    return rres.json()
-})
-.then(function(data){
-    movieNames(data)
-})
+    movieJson();
+
+function movieJson(){
+    fetch("http:localhost:3000/movies/")
+    . then(function(rres){
+        return rres.json()
+    })
+    .then(function(data){
+        movieNames(data)
+    })
+}
 
 function movieNames(movies){
     console.log(movies)
