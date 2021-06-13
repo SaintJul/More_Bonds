@@ -27,7 +27,7 @@
 
 /**/
 document.addEventListener("DOMContentLoaded", () => {
-fetch("http:localhost:4000/movies/")
+fetch("http:localhost:3000/movies/")
 .then(function(rres){
     return rres.json()
 })
@@ -36,7 +36,8 @@ fetch("http:localhost:4000/movies/")
 })
 
 function movieNames(movies){
-    console.log(movies.movies.length) // Number of movies
+    console.log(movies)
+    console.log(movies.length) // Number of movies
    //console.log(movies.movies[0]["Movie"]) // shows the first movie
 
    
