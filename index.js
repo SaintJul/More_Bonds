@@ -1,6 +1,6 @@
 //structurally ~ 
-    //I'll have a h1 say 007
-    //print the names of the movies in an h3 or h4 (horizontal list??)
+    //I'll have a h1 say 007 ++
+    //print the names of the movies in an h3 or h4 (horizontal list??) ++
     // once the user clicks a movie they have an option to like it and get additional info ~
     // once the category for additional infomation is clicked, the user could also look at movies with the same actor.
 
@@ -8,8 +8,10 @@
 
 /**/
 document.addEventListener("DOMContentLoaded", () => {
-    const form  = document.getElementById("interaction")
-    let h1 = document.createElement("h1")
+    const form  = document.getElementById("interaction")  
+    let h1 = document.createElement("h1") 
+    const btn1 = document.createElement("button")
+    const btn2 = document.createElement("button")
     userConvo();
     //movieJson();
     
@@ -25,7 +27,7 @@ function movieJson(){
 }
 
 function userConvo(){
-    
+   
     
     form.appendChild(h1)  
     let pause = "." 
@@ -41,8 +43,7 @@ function userConvo(){
 
 
     setTimeout(() => {
-        const btn1 = document.createElement("button")
-        const btn2 = document.createElement("button")
+        
         form.appendChild(btn1)
         form.appendChild(btn2)
         btn1.innerText = "Yes"
@@ -88,7 +89,10 @@ function userConvo(){
    
 }
 
-function movieNames(movies){
+function movieNames(movies){   
+    const EMPTY_HEART = '♡'
+    const FULL_HEART = '♥'
+     
     const list = document.createElement("ul")    
     form.appendChild(list)
     
@@ -98,7 +102,7 @@ function movieNames(movies){
         list.appendChild(liList)
         const h4 = document.createElement("h4")
         liList.appendChild(h4)
-        h4.innerText = (movies[i]["Movie"])   
+        h4.innerText = (movies[i]["Movie"]) + ` ${EMPTY_HEART}`
 
         setTimeout(() => {
             h1.innerText = "Here's a list of bond Movies"
