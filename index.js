@@ -27,15 +27,15 @@ function userConvo(){
     let h1 = document.createElement("h1")
     form.appendChild(h1)  
     let pause = "." 
-    h1.innerText = "007"
+    h1.innerText = "007 "
     
     setTimeout(() =>{
         for(i = 0; i< 10; i++){
-            h1.innerText += pause
+            h1.innerText += `${pause} `
         }
     }, 1000)
 
-    setTimeout(() => {h1.innerText += "is that you?" },2200)
+    setTimeout(() => {h1.innerText += " is that you?" },2200)
 
 
     setTimeout(() => {
@@ -53,22 +53,31 @@ function userConvo(){
            setTimeout (() =>{h1.innerText = "This message will self-destruct in "},1200)
 
            setInterval(() => {
-                    while (countDown > 0){
-                        h1.innerText += ` ${countDown}` 
+                    while (countDown > 1){
+                        h1.innerText += ` ${countDown},` 
                         return countDown--
-                    }         
-           }, 1900);
-
+                    }
+                           
+           }, 1800);
            
+           setTimeout(() => {h1.innerText +=" 1"},8500)
+
+           setTimeout(() => {
+               h1.innerText = "."               
+           }, 11000);
+
+           setTimeout(() => {
+            h1.innerText +=  ".. Lets give the No button a try"             
+        }, 13000);
 
 
-           
-                
-            
+
+
         })
         btn2.addEventListener("click", function(event) {
             event.preventDefault()
-            console.log("works2")
+            h1.innerText = "Thanks for your participation"
+            setTimeout(() => {movieJson()},1000)
 
         })  
 
