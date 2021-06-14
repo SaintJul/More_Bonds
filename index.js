@@ -37,7 +37,6 @@ function userConvo(){
 
     setTimeout(() => {h1.innerText += " is that you?" },2200)
 
-
     setTimeout(() => {
         
         form.appendChild(btn1)
@@ -85,17 +84,22 @@ function userConvo(){
 function movieNames(movies){   
     const EMPTY_HEART = '♡'
     const FULL_HEART = '♥'
+    btn1.remove()
+    btn2.remove()
+    let num = 0
      
     const list = document.createElement("ul")    
     form.appendChild(list)
     
     for(i = 0; i < movies.length; i++){
+       
         list.class = "hlist"
         const liList = document.createElement("li")
         list.appendChild(liList)
         const h4 = document.createElement("h4")
         liList.appendChild(h4)
         h4.innerText = (movies[i]["Movie"]) 
+        num = i 
 
 
         setTimeout(() => {
@@ -113,9 +117,14 @@ function movieNames(movies){
                 h1.innerText = `I'll show you more information about ${h4.innerText}`
             }, 2000)
 
-
             
+            moreInfo(h4.innerText, movies)
+            list.remove()
         })
+
+        
+
+
 
         
     }
@@ -124,6 +133,23 @@ function movieNames(movies){
    
 
 }
+    function moreInfo(movieName, list){
+        console.log(list)
+        //console.log(list.length)
+
+        for (i = 0; i < list.length;i++){
+            //console.log(list[i]["Movie"])
+
+            if (list[i]["Movie"] === movieName){
+                console.log("if works")
+            }
+        }
+
+
+
+    }
+
+
 })
 
 
