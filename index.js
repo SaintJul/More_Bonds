@@ -124,18 +124,12 @@ function movieNames(movies){
                 list.remove()
             },2800)         
             
-            
-               
         })    
-
-
-
-        
     }      
 
    
 
-}
+}   
     function moreInfo(movieName, list){
         console.log(list)
         //console.log(list.length)
@@ -153,9 +147,21 @@ function movieNames(movies){
                 div.appendChild(paragr)
 
                 h2.innerText = movieName
-
+                paragr.innerText = `${movieName}, was filmed in ${list[i]["Year"]} and starred noneother than ${list[i]["Bond"]}.
+                This wonderfully written and action packed film, was the creation of ${list[i]["Writer"]}.
+                It comes as no suprise, ${movieName}, with it's ${list[i]["Avg_User_IMDB"]} rating for critcs and ${list[i]["Avg_User_Rtn_Tom"]}
+                rating for masses, earned ${list[i]["World_Gross"]}.`
+                
                 //console.log(div)
+                setTimeout(()=> {
+                    repeatMovieSearch()
+                },2000)
+                
             }
+        }
+
+        function repeatMovieSearch(){
+
         }
 
 
