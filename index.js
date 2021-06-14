@@ -1,7 +1,5 @@
-//structurally ~ 
-    //I'll have a h1 say 007 ++
-    //print the names of the movies in an h3 or h4 (horizontal list??) ++
-    // once the user clicks a movie they have an option to like it and get additional info ~
+//structurally ~     
+    // once the user clicks a movie they have an option get additional info ~
     // once the category for additional infomation is clicked, the user could also look at movies with the same actor.
 
 //Display the info then get css to style the page and info.
@@ -26,9 +24,7 @@ function movieJson(){
     })
 }
 
-function userConvo(){
-   
-    
+function userConvo(){    
     form.appendChild(h1)  
     let pause = "." 
     h1.innerText = "007 "
@@ -73,9 +69,6 @@ function userConvo(){
             h1.innerText +=  ".. Lets give the No button a try"             
         }, 13000);
 
-
-
-
         })
         btn2.addEventListener("click", function(event) {
             event.preventDefault()
@@ -106,30 +99,31 @@ function movieNames(movies){
 
 
         setTimeout(() => {
-            h1.innerText = "Here's a list of bond Movies"
-               
+            h1.innerText = "Here's a list of bond Movies"               
         }, 1000);
 
-        setTimeout(() => {          
+        setTimeout(() => {       
         
             h1.innerText = "Which one is your favorite?"
         },3500)
 
         h4.addEventListener("click", function(){
-            console.log(h4.innerText)
-            //h1.innerText = `So you like ${h4.value}`
-            //h4.innerText = (movie[i]["Movie"]) + ` ${FULL_HEART}`
+            h1.innerText = `I see that you've liked ${h4.innerText}`
+            setTimeout(() => {
+                h1.innerText = `I'll show you more information about ${h4.innerText}`
+            }, 2000)
+
+
+            
         })
 
         
     }
-
-    
+        
 
    
 
 }
-
 })
 
 
