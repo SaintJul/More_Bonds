@@ -102,7 +102,8 @@ function movieNames(movies){
         list.appendChild(liList)
         const h4 = document.createElement("h4")
         liList.appendChild(h4)
-        h4.innerText = (movies[i]["Movie"]) + ` ${EMPTY_HEART}`
+        h4.innerText = (movies[i]["Movie"]) 
+
 
         setTimeout(() => {
             h1.innerText = "Here's a list of bond Movies"
@@ -113,6 +114,13 @@ function movieNames(movies){
         
             h1.innerText = "Which one is your favorite?"
         },3500)
+
+        h4.addEventListener("click", function(){
+            console.log(h4.innerText)
+            //h1.innerText = `So you like ${h4.value}`
+            //h4.innerText = (movie[i]["Movie"]) + ` ${FULL_HEART}`
+        })
+
         
     }
 
