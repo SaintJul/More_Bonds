@@ -114,21 +114,23 @@ function movieNames(movies){
         h4.addEventListener("click", function(){
             h1.innerText = `I see that you've liked ${h4.innerText}`
             setTimeout(() => {
-                h1.innerText = `I'll show you more information about ${h4.innerText}`
+                h1.innerText = `Great choice!!!`
             }, 2000)
 
+            setTimeout(()=>{
+                h1.innerText += ` Here's some more info.`
+                moreInfo(h4.innerText, movies) 
+                list.remove()
+            },2800)         
             
-            moreInfo(h4.innerText, movies)
-            list.remove()
-        })
-
-        
+            
+            
+        })    
 
 
 
         
-    }
-        
+    }      
 
    
 
@@ -141,7 +143,17 @@ function movieNames(movies){
             //console.log(list[i]["Movie"])
 
             if (list[i]["Movie"] === movieName){
-                console.log("if works")
+                //console.log("if works")
+                const div  = document.createElement("div")
+                form.appendChild(div)
+                const h2 = document.createElement("h2")
+                div.appendChild(h2)
+                const paragr = document.createElement("p")
+                div.appendChild(paragr)
+
+                h2.innerText = movieName
+
+                //console.log(div)
             }
         }
 
