@@ -35,7 +35,7 @@ function userConvo(){
     h1.innerText = "007"
     
     setTimeout(() =>{
-        for(i = 0; i< 5; i++){
+        for(i = 0; i< 10; i++){
             h1.innerText += pause
         }
     }, 1000)
@@ -50,9 +50,23 @@ function userConvo(){
         form.appendChild(btn2)
         btn1.innerText = "Yes"
         btn2.innerText = "No"
-        console.log(btn1)
 
-    }, 2500)
+        btn1.addEventListener("click", function(event) {
+            event.preventDefault()
+            console.log("works1")
+        })
+        btn2.addEventListener("click", function(event) {
+            event.preventDefault()
+            console.log("works2")
+        })           
+
+
+    }, 2600)
+
+   
+    
+   
+
 
 }
 
