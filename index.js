@@ -69,6 +69,7 @@ function userConvo(){
         }, 13000);
 
         })
+
         btn2.addEventListener("click", function(event) {
             event.preventDefault()
             h1.innerText = "Thanks for your participation"
@@ -124,7 +125,7 @@ function movieNames(movies){
             },2800)         
             
             
-            
+               
         })    
 
 
