@@ -8,6 +8,8 @@
 
 /**/
 document.addEventListener("DOMContentLoaded", () => {
+    const form  = document.getElementById("interaction")
+    let h1 = document.createElement("h1")
     userConvo();
     //movieJson();
     
@@ -23,8 +25,8 @@ function movieJson(){
 }
 
 function userConvo(){
-    const form  = document.getElementById("interaction")
-    let h1 = document.createElement("h1")
+    
+    
     form.appendChild(h1)  
     let pause = "." 
     h1.innerText = "007 "
@@ -82,19 +84,35 @@ function userConvo(){
         })  
 
 
-    }, 2600)
-
+    }, 2600)    
    
-    
-   
-
-
 }
 
 function movieNames(movies){
-    console.log(movies)
-    console.log(movies.length) // Number of movies
-   //console.log(movies.movies[0]["Movie"]) // shows the first movie
+    const list = document.createElement("ul")    
+    form.appendChild(list)
+    
+    for(i = 0; i < movies.length; i++){
+        list.class = "hlist"
+        const liList = document.createElement("li")
+        list.appendChild(liList)
+        const h4 = document.createElement("h4")
+        liList.appendChild(h4)
+        h4.innerText = (movies[i]["Movie"])   
+
+        setTimeout(() => {
+            h1.innerText = "Here's a list of bond Movies"
+               
+        }, 1000);
+
+        setTimeout(() => {          
+        
+            h1.innerText = "Which one is your favorite?"
+        },3500)
+        
+    }
+
+    
 
    
 
