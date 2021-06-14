@@ -8,8 +8,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form  = document.getElementById("interaction")  
     let h1 = document.createElement("h1") 
+    const div  = document.createElement("div")
     const btn1 = document.createElement("button")
     const btn2 = document.createElement("button")
+    const btn3 = document.createElement("button")
     userConvo();
     //movieJson();
     
@@ -131,7 +133,7 @@ function movieNames(movies){
 
 }   
     function moreInfo(movieName, list){
-        console.log(list)
+        //console.log(list)
         //console.log(list.length)
 
         for (i = 0; i < list.length;i++){
@@ -139,7 +141,7 @@ function movieNames(movies){
 
             if (list[i]["Movie"] === movieName){
                 //console.log("if works")
-                const div  = document.createElement("div")
+                
                 form.appendChild(div)
                 const h2 = document.createElement("h2")
                 div.appendChild(h2)
@@ -149,18 +151,46 @@ function movieNames(movies){
                 h2.innerText = movieName
                 paragr.innerText = `${movieName}, was filmed in ${list[i]["Year"]} and starred noneother than ${list[i]["Bond"]}.
                 This wonderfully written and action packed film, was the creation of ${list[i]["Writer"]}.
-                It comes as no suprise, ${movieName}, with it's ${list[i]["Avg_User_IMDB"]} rating for critcs and ${list[i]["Avg_User_Rtn_Tom"]}
-                rating for masses, earned ${list[i]["World_Gross"]}.`
+                It should come as no suprise that ${movieName}, with it's ${list[i]["Avg_User_IMDB"]} rating for critcs and ${list[i]["Avg_User_Rtn_Tom"]}
+                rating for masses, grossed ${list[i]["World_Gross"]} world-wide.`
                 
                 //console.log(div)
                 setTimeout(()=> {
                     repeatMovieSearch()
-                },2000)
+                },10000)
                 
             }
         }
 
         function repeatMovieSearch(){
+            h1.innerText = "Would you like to try that again?"
+            
+            setTimeout(() => {
+                
+                form.appendChild(btn3)
+                btn3.innerText = "Surprise"
+                form.appendChild(btn2)
+                btn2.innerText = "repeat"
+            }, 1000)
+
+            setTimeout(() => {
+                div.remove()
+            }, 2000)
+
+            btn3.addEventListener("click", function(e) {
+                e.preventDefault()
+                h1.innerText = "Thank you for your time."
+
+            })
+            btn2.addEventListener("click", function (e) {
+                e.preventDefault()
+                btn3.remove()
+                console.log("btn2 works")
+            })
+            
+
+
+            
 
         }
 
