@@ -1,16 +1,3 @@
-/*document.addEventListener("DOMContentLoaded",()=>{
-    const h1 = document.getElementsByTagName("h1")
-    setTimeout(()=>{
-        console.log(h1[0].innerText)
-    },400)
-
-    const form  = document.getElementById("interaction")
-   console.log(form)
-
-    
-})*/
-
-
 // 06/07/21-06/08/21 Tuesday Night
 // Display the names of the bonds films +
 // I also experimented with a function to add to the user experience +
@@ -27,7 +14,8 @@
 
 /**/
 document.addEventListener("DOMContentLoaded", () => {
-    movieJson();
+    userConvo();
+    //movieJson();
 
 function movieJson(){
     fetch("http:localhost:3000/movies/")
@@ -37,6 +25,35 @@ function movieJson(){
     .then(function(data){
         movieNames(data)
     })
+}
+
+function userConvo(){
+    const form  = document.getElementById("interaction")
+    let h1 = document.createElement("h1")
+    form.appendChild(h1)  
+    let pause = "." 
+    h1.innerText = "007"
+    
+    setTimeout(() =>{
+        for(i = 0; i< 5; i++){
+            h1.innerText += pause
+        }
+    }, 1000)
+
+    setTimeout(() => {h1.innerText += "is that you?" },2200)
+
+
+    setTimeout(() => {
+        const btn1 = document.createElement("button")
+        const btn2 = document.createElement("button")
+        form.appendChild(btn1)
+        form.appendChild(btn2)
+        btn1.innerText = "Yes"
+        btn2.innerText = "No"
+        console.log(btn1)
+
+    }, 2500)
+
 }
 
 function movieNames(movies){
