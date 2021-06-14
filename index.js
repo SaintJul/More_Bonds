@@ -1,9 +1,3 @@
-// 06/07/21-06/08/21 Tuesday Night
-// Display the names of the bonds films +
-// I also experimented with a function to add to the user experience +
-// Additional research was done for the background img and font +
-
-
 //structurally ~ 
     //I'll have a h1 say 007
     //print the names of the movies in an h3 or h4 (horizontal list??)
@@ -16,6 +10,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     userConvo();
     //movieJson();
+    
 
 function movieJson(){
     fetch("http:localhost:3000/movies/")
@@ -50,15 +45,32 @@ function userConvo(){
         form.appendChild(btn2)
         btn1.innerText = "Yes"
         btn2.innerText = "No"
+        let countDown = 5
 
         btn1.addEventListener("click", function(event) {
             event.preventDefault()
-            console.log("works1")
+           h1.innerText = "You're Not 007"
+           setTimeout (() =>{h1.innerText = "This message will self-destruct in "},1200)
+
+           setInterval(() => {
+                    while (countDown > 0){
+                        h1.innerText += ` ${countDown}` 
+                        return countDown--
+                    }         
+           }, 1900);
+
+           
+
+
+           
+                
+            
         })
         btn2.addEventListener("click", function(event) {
             event.preventDefault()
             console.log("works2")
-        })           
+
+        })  
 
 
     }, 2600)
