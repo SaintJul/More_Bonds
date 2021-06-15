@@ -157,7 +157,7 @@ function movieNames(movies){
                 //console.log(div)
                 setTimeout(()=> {
                     repeatMovieSearch()
-                },10000)
+                },20000)
                 
             }
         }
@@ -180,6 +180,8 @@ function movieNames(movies){
             btn3.addEventListener("click", function(e) {
                 e.preventDefault()
                 h1.innerText = "Thank you for your time."
+                btn3.remove()
+                btn2.remove()
 
             })
             btn2.addEventListener("click", function (e) {
