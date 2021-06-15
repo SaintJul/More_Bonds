@@ -84,9 +84,7 @@ function userConvo(){
    
 }
 
-function movieNames(movies){   
-    const EMPTY_HEART = '♡'
-    const FULL_HEART = '♥'
+function movieNames(movies){       
     btn1.remove()
     btn2.remove()
     let num = 0
@@ -168,9 +166,9 @@ function movieNames(movies){
             setTimeout(() => {
                 
                 form.appendChild(btn3)
-                btn3.innerText = "Surprise"
+                btn3.innerText = "Another Time"
                 form.appendChild(btn2)
-                btn2.innerText = "repeat"
+                btn2.innerText = "Repeat"
             }, 1000)
 
             setTimeout(() => {
