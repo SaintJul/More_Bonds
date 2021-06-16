@@ -20,6 +20,10 @@ li {
     list-style-type: none;
 }
 
+p {
+    font-weight: bold;
+}
+
 button {
     color: #373737;
     font-size: 30px;

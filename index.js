@@ -1,10 +1,4 @@
-//structurally ~     
-    // once the user clicks a movie they have an option get additional info ~
-    // once the category for additional infomation is clicked, the user could also look at movies with the same actor.
 
-//Display the info then get css to style the page and info.
-
-/**/
 document.addEventListener("DOMContentLoaded", () => {
     const form  = document.getElementById("interaction")  
     let h1 = document.createElement("h1") 
@@ -13,9 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn2 = document.createElement("button")
     const btn3 = document.createElement("button")
     userConvo();
-    //movieJson();
     
-
+//Grabs the json file of movies
 function movieJson(){
     fetch("http:localhost:3000/movies/")
     . then(function(rres){
@@ -25,7 +18,11 @@ function movieJson(){
         movieNames(data)
     })
 }
-
+//Initiates a pseudo-convo with the user by asking them if they're 007
+//Convo continues with a click of the "Yes" or "NO"
+//If yes is chosen, the program states that the user isn't the infamous agent and directs the user to the "NO" button
+//Once "No" is selected, movieJson() is called
+//and the infomation is sent to the movieNames function
 function userConvo(){    
     form.appendChild(h1)  
     let pause = "." 
@@ -84,6 +81,8 @@ function userConvo(){
    
 }
 
+//movieNames function shows a list of Bond films and asks the user to select a favorite
+//movieNames then sends the json and the nameof the film to moreInfo function
 function movieNames(movies){       
     btn1.remove()
     btn2.remove()
@@ -129,7 +128,11 @@ function movieNames(movies){
 
    
 
-}   
+} 
+  //The moreInfo function loops through the json to find a film with a matching name.
+  //Once it finds the name that matches the users selection, it formats the info into a paragraph.
+  //The info used are the name of film, the writes, the actor, its rating and the amount of money earned.
+  //The repeatMovieSeacrch function is called 10 secends afterward.
     function moreInfo(movieName, list){
         //console.log(list)
         //console.log(list.length)
@@ -159,7 +162,7 @@ function movieNames(movies){
                 
             }
         }
-
+        //repeatMovieSearch allows the user to run this program again while also showing the result of previous searches.
         function repeatMovieSearch(){
             h1.innerText = "Would you like to try that again?"
             
