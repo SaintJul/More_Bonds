@@ -17,7 +17,11 @@ h1 {
 }
 
 li {
+    float:inline-start;
     list-style-type: none;
+    font-weight: 700;
+    font-family: sans-serif;
+    font-style: italic;
 }
 
 p {

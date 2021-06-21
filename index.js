@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const form  = document.getElementById("interaction")  
     let h1 = document.createElement("h1") 
@@ -8,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn3 = document.createElement("button")
     userConvo();
     
-//Grabs the json file of movies
+//fetches the json file and sends the info to the movie names function
 function movieJson(){
     fetch("http:localhost:3000/movies/")
     . then(function(rres){
@@ -18,11 +17,10 @@ function movieJson(){
         movieNames(data)
     })
 }
-//Initiates a pseudo-convo with the user by asking them if they're 007
-//Convo continues with a click of the "Yes" or "NO"
-//If yes is chosen, the program states that the user isn't the infamous agent and directs the user to the "NO" button
-//Once "No" is selected, movieJson() is called
-//and the infomation is sent to the movieNames function
+
+//Initiates user convo by giving the user a yes or no choice.
+//If response is yes, the program will correct the users course with a set of delays.
+//Once No is clicked the function calls the function containing the fetch.
 function userConvo(){    
     form.appendChild(h1)  
     let pause = "." 
@@ -80,9 +78,9 @@ function userConvo(){
     }, 2600)    
    
 }
-
-//movieNames function shows a list of Bond films and asks the user to select a favorite
-//movieNames then sends the json and the nameof the film to moreInfo function
+//movieNames function obtains the json file and displays the list of movies
+//The program then asks the user to pick their favorite movie.
+//movieNames Function then sends the users choice and the list of movies to the moreInfo function
 function movieNames(movies){       
     btn1.remove()
     btn2.remove()
@@ -101,7 +99,7 @@ function movieNames(movies){
         h4.innerText = (movies[i]["Movie"]) 
         num = i 
 
-
+        
         setTimeout(() => {
             h1.innerText = "Here's a list of bond Movies"               
         }, 1000);
@@ -128,74 +126,68 @@ function movieNames(movies){
 
    
 
-} 
-  //The moreInfo function loops through the json to find a film with a matching name.
-  //Once it finds the name that matches the users selection, it formats the info into a paragraph.
-  //The info used are the name of film, the writes, the actor, its rating and the amount of money earned.
-  //The repeatMovieSeacrch function is called 10 secends afterward.
-    function moreInfo(movieName, list){
-        //console.log(list)
-        //console.log(list.length)
+}   
 
-        for (i = 0; i < list.length;i++){
-            //console.log(list[i]["Movie"])
+//moreInfo takes the name of the movie selected and posts info formatted into a paragraph.
+function moreInfo(movieName, list){
+    //console.log(list)
+    //console.log(list.length)
 
-            if (list[i]["Movie"] === movieName){
+    for (i = 0; i < list.length;i++){
+        //console.log(list[i]["Movie"])
+
+        if (list[i]["Movie"] === movieName){
                 //console.log("if works")
                 
-                form.appendChild(div)
-                const h2 = document.createElement("h2")
-                div.appendChild(h2)
-                const paragr = document.createElement("p")
-                div.appendChild(paragr)
+            form.appendChild(div)
+            const h2 = document.createElement("h2")
+            div.appendChild(h2)
+            const paragr = document.createElement("p")
+            div.appendChild(paragr)
 
-                h2.innerText = movieName
-                paragr.innerText = `${movieName}, was filmed in ${list[i]["Year"]} and starred noneother than ${list[i]["Bond"]}.
-                This wonderfully written and action packed film, was the creation of ${list[i]["Writer"]}.
-                It should come as no suprise that ${movieName}, with it's ${list[i]["Avg_User_IMDB"]} rating for critcs and ${list[i]["Avg_User_Rtn_Tom"]}
-                rating for masses, grossed ${list[i]["World_Gross"]} world-wide.`
+            h2.innerText = movieName
+            paragr.innerText = `${movieName}, was filmed in ${list[i]["Year"]} and starred noneother than ${list[i]["Bond"]}.
+            This wonderfully written and action packed film, was the creation of ${list[i]["Writer"]}.
+            It should come as no suprise that ${movieName}, with it's ${list[i]["Avg_User_IMDB"]} rating for critcs and ${list[i]["Avg_User_Rtn_Tom"]}
+            rating for masses, grossed ${list[i]["World_Gross"]} world-wide.`
                 
                 //console.log(div)
-                setTimeout(()=> {
-                    repeatMovieSearch()
-                },20000)
+            setTimeout(()=> {
+                repeatMovieSearch()
+            },20000)
                 
-            }
         }
-        //repeatMovieSearch allows the user to run this program again while also showing the result of previous searches.
-        function repeatMovieSearch(){
-            h1.innerText = "Would you like to try that again?"
+    }              
+
+    }
+    //Asks the user if they'd like to repeat the process again.
+    function repeatMovieSearch(){
+        h1.innerText = "Would you like to try that again?"
             
-            setTimeout(() => {
+        setTimeout(() => {
                 
-                form.appendChild(btn3)
-                btn3.innerText = "Another Time"
-                form.appendChild(btn2)
-                btn2.innerText = "Repeat"
-            }, 1000)
+            form.appendChild(btn3)
+            btn3.innerText = "Another Time"
+            form.appendChild(btn2)
+            btn2.innerText = "Repeat"
+        }, 1000)
 
-            setTimeout(() => {
-                div.remove()
-            }, 2000)
+        setTimeout(() => {
+            div.remove()
+        }, 2000)
 
-            btn3.addEventListener("click", function(e) {
-                e.preventDefault()
-                h1.innerText = "Thank you for your time."
-                btn3.remove()
-                btn2.remove()
+        btn3.addEventListener("click", function(e) {
+             e.preventDefault()
+            h1.innerText = "Thank you for your time."
+            btn3.remove()
+            btn2.remove()
 
-            })
-            btn2.addEventListener("click", function (e) {
-                e.preventDefault()
-                btn3.remove()
-                console.log("btn2 works")
-            })
-            
-
-
-            
-
-        }
+        })
+        btn2.addEventListener("click", function (e) {
+            e.preventDefault()
+            btn3.remove()
+            console.log("btn2 works")
+        })
 
 
 
